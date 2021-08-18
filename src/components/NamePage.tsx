@@ -9,18 +9,25 @@ import { GameStatus } from '../models/Game';
 const useStyles = makeStyles((theme) => ({
     
     heroContent: {
-      padding: theme.spacing(8, 0, 6),
+      padding: theme.spacing(8, 0, 35),
     },
     nameTextField: {
-      marginTop: '30px'
+      marginTop: '30px',
+      color: 'white',
     }, 
     buttons: {
       display: 'flex', 
       marginTop: '40px'
     },
     nextButton: {
-      marginLeft: "auto"
-    }
+      marginLeft: "auto",
+      borderRadius: '20px',
+      backgroundColor: '#000',
+    },
+    backButton: {
+        borderRadius: '20px',
+        backgroundColor: '#000',
+    },
   }));
 
 
@@ -69,7 +76,7 @@ export const NamePage: React.FC<Model> = (props: any) => {
                   onChange={(e)=> onInputChange(e.target.value)}
               />
               <div className={classes.buttons}>
-                <Button variant="contained" color="primary" size='large' startIcon={<NavigateBeforeIcon />} onClick={()=>setCurrentStatus(GameStatus.NOT_STARTED)} >
+                <Button variant="contained" color="primary" size='large' className={classes.backButton} startIcon={<NavigateBeforeIcon />} onClick={()=>setCurrentStatus(GameStatus.NOT_STARTED)} >
                     Back
                 </Button>
                 <Button variant="contained" color="primary" size='large' className={classes.nextButton} endIcon={<NavigateNextIcon />} onClick={()=>nextButtonHandler()} >

@@ -1,7 +1,13 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
+html {
+  background-color: #FF9051;
+}
+
 .App {
   text-align: center;
+  background-color: #FF9051;
+  padding-bottom: 50px;
 }
 
 .image-gallery-image {

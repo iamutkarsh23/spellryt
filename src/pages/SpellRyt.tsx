@@ -5,7 +5,8 @@ import { InstructionsPage } from '../components/InstructionPage';
 import { GameStatus } from '../models/Game';
 import { NamePage } from '../components/NamePage';
 import { GamePage } from '../components/GamePage';
-
+import { GameOver } from '../components/GameOver';
+import { Footer } from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 export const SpellRyt = () => {
     const classes = useStyles();
 
-    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.GAME_IN_PROGRESS);
+    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.GAME_OVER);
     const [name, setName] = useState('');
 
 
@@ -74,8 +75,11 @@ export const SpellRyt = () => {
                 ? <InstructionsPage setCurrentStatus={setCurrentStatus}/>
                 : currentStatus === GameStatus.STARTED
                 ? <NamePage setCurrentStatus={setCurrentStatus} name={name} setName={setName} />
-                : <GamePage></GamePage>}
+                : currentStatus === GameStatus.GAME_IN_PROGRESS 
+                ? <GamePage setCurrentStatus={setCurrentStatus} name={name} ></GamePage>
+                : <GameOver setCurrentStatus={setCurrentStatus}/>}
             </Container>
+            <Footer />
         </React.Fragment>
     )
 }

@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     heroContent: {
       padding: theme.spacing(8, 0, 6),
     },
+    btn: {
+        borderRadius: '20px',
+        backgroundColor: '#000',
+    },
     
 }));
 
@@ -31,7 +35,7 @@ export const InstructionsPage: React.FC<Model> = (props: any) => {
         </Container>
 
         <div style={{display: 'flex', justifyContent: 'center'}}>
-                <Button variant="contained" color="primary" size='large'
+                <Button variant="contained" color="primary" size='large' className={classes.btn}
                   onClick={() => setCurrentStatus(GameStatus.STARTED)}
                 >
                 Start spelling
