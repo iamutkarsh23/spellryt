@@ -60,48 +60,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const words = [
-{
-    text: 'C',
-    value: 100,
-},
-{
-    text: 'Y',
-    value: 100,
-},
-{
-    text: 'C',
-    value: 100,
-},
-{
-    text: 'L',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-{
-    text: 'E',
-    value: 100,
-},
-]
+// const words = [
+// {
+//     text: 'C',
+//     value: 100,
+// },
+// {
+//     text: 'Y',
+//     value: 100,
+// },
+// {
+//     text: 'C',
+//     value: 100,
+// },
+// {
+//     text: 'L',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// {
+//     text: 'E',
+//     value: 100,
+// },
+// ]
 
 const options: CustOpt = {
     // deterministic: true,
@@ -115,20 +115,20 @@ type CustOpt = {
     fontSizes: [number, number],
     rotations: number
 }
-const images = [
-    {
-      original: 'https://picsum.photos/id/1018/1000/600/',
-    //   thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-    //   thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-    //   thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-  ];
+// const images = [
+//     {
+//       original: 'https://picsum.photos/id/1018/1000/600/',
+//     //   thumbnail: 'https://picsum.photos/id/1018/250/150/',
+//     },
+//     {
+//       original: 'https://picsum.photos/id/1015/1000/600/',
+//     //   thumbnail: 'https://picsum.photos/id/1015/250/150/',
+//     },
+//     {
+//       original: 'https://picsum.photos/id/1019/1000/600/',
+//     //   thumbnail: 'https://picsum.photos/id/1019/250/150/',
+//     },
+//   ];
 
 export type Model = {
     setCurrentStatus: any,
