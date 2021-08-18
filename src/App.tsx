@@ -5,7 +5,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { SpellRyt } from './pages/SpellRyt';
 
-
 function App() {
   return (
     <div className="App">

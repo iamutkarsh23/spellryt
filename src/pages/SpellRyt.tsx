@@ -4,15 +4,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { InstructionsPage } from '../components/InstructionPage';
 import { GameStatus } from '../models/Game';
 import { NamePage } from '../components/NamePage';
+import { GamePage } from '../components/GamePage';
 
 
 const useStyles = makeStyles((theme) => ({
     container: {
-      padding: '0 30px'
+      padding: '0 30px',
     },
-    bigContainer: {
-      padding: '0 7px'
-    },
+    
     '@global': {
       ul: {
         margin: 0,
@@ -51,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 export const SpellRyt = () => {
     const classes = useStyles();
 
-    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.NOT_STARTED);
+    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.GAME_IN_PROGRESS);
     const [name, setName] = useState('');
 
 
@@ -75,7 +74,7 @@ export const SpellRyt = () => {
                 ? <InstructionsPage setCurrentStatus={setCurrentStatus}/>
                 : currentStatus === GameStatus.STARTED
                 ? <NamePage setCurrentStatus={setCurrentStatus} name={name} setName={setName} />
-                : <></>}
+                : <GamePage></GamePage>}
             </Container>
         </React.Fragment>
     )
