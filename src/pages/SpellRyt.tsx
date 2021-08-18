@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbarTitle: {
       flexGrow: 1,
-      display: 'flex'
+      display: 'flex',
+      cursor: 'pointer'
     },
     link: {
       margin: theme.spacing(1, 1.5),
@@ -60,8 +61,8 @@ export const SpellRyt = () => {
             <CssBaseline />
             <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
-                <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} >
-                    EDCI 337
+                <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} onClick={()=>setCurrentStatus(GameStatus.NOT_STARTED)} >
+                    EDCI 337 - Interactive and Multimedia Learning
                 </Typography>
                 <nav>
                     <Link variant="button" color="textPrimary" href="mailto:mindutkarsh@gmail.com" className={classes.link}>
