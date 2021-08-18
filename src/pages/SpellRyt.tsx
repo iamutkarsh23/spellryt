@@ -1,5 +1,5 @@
 import { AppBar, Container, CssBaseline, Link, Toolbar, Typography } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { InstructionsPage } from '../components/InstructionPage';
 import { GameStatus } from '../models/Game';

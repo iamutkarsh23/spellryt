@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Row, Col } from 'react-bootstrap';
 import { Grid } from '@material-ui/core';
 import ReactWordcloud from 'react-wordcloud';
 import { TextField, Typography, Button } from '@material-ui/core';
