@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "10px",
         // backgroundColor: '#FF9051',
         padding: '20px !important',
-        marginBottom: '50px'
+        marginBottom: '190px'
     },
     intro: {
         marginTop: "50px",
@@ -104,13 +104,14 @@ const useStyles = makeStyles((theme) => ({
 // ]
 
 const options: CustOpt = {
-    // deterministic: true,
+    deterministic: true,
     spiral: 'rectangular',
     fontSizes: [Number(35),Number(60)],
     rotations: 100,
 }
 
 type CustOpt = {
+    deterministic: boolean
     spiral: 'archimedean' | 'rectangular';
     fontSizes: [number, number],
     rotations: number

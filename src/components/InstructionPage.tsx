@@ -6,7 +6,7 @@ import { GameStatus } from '../models/Game';
 const useStyles = makeStyles((theme) => ({
     
     heroContent: {
-      padding: theme.spacing(8, 0, 6),
+      padding: theme.spacing(8, 0, 35),
     },
     btn: {
         borderRadius: '20px',
@@ -30,17 +30,20 @@ export const InstructionsPage: React.FC<Model> = (props: any) => {
             Spell Ryt
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" component="p">
-            An interactive game for you to brush up on your spelling skills
+              An interactive game for you to <i style={{color: 'white'}}>brush up on your spelling skills!</i>
+              <br />
+              Guess the <i style={{color: 'white'}}>ryt</i> spelling of <i style={{color: 'white'}}>things around you!</i>
             </Typography>
-        </Container>
-
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>
                 <Button variant="contained" color="primary" size='large' className={classes.btn}
                   onClick={() => setCurrentStatus(GameStatus.STARTED)}
                 >
                 Start spelling
                 </Button>
-        </div>
+            </div>
+        </Container>
+
+        
       </>
     )
 }
