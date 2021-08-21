@@ -123,6 +123,13 @@ export const GamePage: React.FC<Model> = (props: Model) => {
         }
     }
 
+    const onChangeAnswerHandler = (e: any) => {
+        setAnswer(e.target.value);
+        if (e.keyCode === 13) {
+            submitHandler();
+        }
+    }
+
     return (
         <React.Fragment>
             <Modal open={successModal} onClose={onCloseSuccessModal} center>
@@ -167,6 +174,7 @@ export const GamePage: React.FC<Model> = (props: Model) => {
                                 value={answer}
                                 autoFocus
                                 onChange={(e)=> setAnswer(e.target.value)}
+                                onKeyUp={(e: any) => onChangeAnswerHandler(e)}
                             />
                             <div className={classes.buttonArea}>
                                 <Button variant="contained" color="primary" size='large' className={classes.backButton} onClick={()=>skipToNextRound()}>
