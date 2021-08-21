@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 export const SpellRyt = () => {
     const classes = useStyles();
 
-    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.STARTED);
+    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.NOT_STARTED);
     const [name, setName] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
 
