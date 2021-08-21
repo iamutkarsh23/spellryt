@@ -10,6 +10,7 @@ import { Modal } from 'react-responsive-modal';
 import { roundsMap } from './Rounds';
 import 'react-responsive-modal/styles.css';
 import { GameStatus } from '../models/Game';
+import './GamePage.css';
 
 const useStyles = makeStyles((theme) => ({
     
@@ -42,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     backButton: {
         borderRadius: '20px',
         backgroundColor: '#000',
-        display: 'none'
     },
     nextButton: {
         marginLeft: "auto",
@@ -59,50 +59,6 @@ const useStyles = makeStyles((theme) => ({
     
 }));
 
-
-// const words = [
-// {
-//     text: 'C',
-//     value: 100,
-// },
-// {
-//     text: 'Y',
-//     value: 100,
-// },
-// {
-//     text: 'C',
-//     value: 100,
-// },
-// {
-//     text: 'L',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// {
-//     text: 'E',
-//     value: 100,
-// },
-// ]
-
 const options: CustOpt = {
     deterministic: true,
     spiral: 'rectangular',
@@ -116,20 +72,6 @@ type CustOpt = {
     fontSizes: [number, number],
     rotations: number
 }
-// const images = [
-//     {
-//       original: 'https://picsum.photos/id/1018/1000/600/',
-//     //   thumbnail: 'https://picsum.photos/id/1018/250/150/',
-//     },
-//     {
-//       original: 'https://picsum.photos/id/1015/1000/600/',
-//     //   thumbnail: 'https://picsum.photos/id/1015/250/150/',
-//     },
-//     {
-//       original: 'https://picsum.photos/id/1019/1000/600/',
-//     //   thumbnail: 'https://picsum.photos/id/1019/250/150/',
-//     },
-//   ];
 
 export type Model = {
     setCurrentStatus: any,
@@ -151,19 +93,25 @@ export const GamePage: React.FC<Model> = (props: Model) => {
     const [currentRound, setCurrRound] = useState(0)
 
     const submitHandler = () => {
-        console.log(answer)
 
-        if(answer.toLowerCase() === roundsMap[currentRound].correctSpelling.toLowerCase()){
+        if(answer.trim().toLowerCase() === roundsMap[currentRound].correctSpelling.toLowerCase()){
             onOpenSuccessModal();
-            
         } else {
-            console.log('ghere')
             onOpenDangerModal();
         }
     }
 
     const moveToNextRound = () => {
         onCloseSuccessModal();
+        setAnswer('');
+        if(currentRound !== roundsMap.length - 1){
+            setCurrRound(currentRound + 1)
+        } else {
+            setCurrentStatus(GameStatus.GAME_OVER)
+        }
+    }
+
+    const skipToNextRound = () => {
         setAnswer('');
         if(currentRound !== roundsMap.length - 1){
             setCurrRound(currentRound + 1)
@@ -181,7 +129,7 @@ export const GamePage: React.FC<Model> = (props: Model) => {
                 </Button>
             </Modal>
             <Modal open={dangerModal} onClose={onCloseDangerModal} center>
-                <h2>So close...</h2>
+                <h2>Not quite right!</h2>
                 <br/>
                 <h4>Try again!!</h4>
             </Modal>
@@ -218,8 +166,8 @@ export const GamePage: React.FC<Model> = (props: Model) => {
                                 onChange={(e)=> setAnswer(e.target.value)}
                             />
                             <div className={classes.buttonArea}>
-                                <Button variant="contained" color="primary" size='large' className={classes.backButton} startIcon={<NavigateBeforeIcon />}  >
-                                    Back
+                                <Button variant="contained" color="primary" size='large' className={classes.backButton} onClick={()=>skipToNextRound()}>
+                                    Skip
                                 </Button>
                                 <Button variant="contained" color="primary" size='large' className={classes.nextButton} endIcon={<NavigateNextIcon />}  onClick={()=>submitHandler()}>
                                     Submit

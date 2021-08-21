@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 export const SpellRyt = () => {
     const classes = useStyles();
 
-    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.NOT_STARTED);
+    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.GAME_IN_PROGRESS);
     const [name, setName] = useState('');
 
 
