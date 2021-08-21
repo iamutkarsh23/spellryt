@@ -75,12 +75,14 @@ type CustOpt = {
 
 export type Model = {
     setCurrentStatus: any,
-    name: string
+    name: string,
+    setCorrectWords: any,
+    correctWords: number,
   }
   
 export const GamePage: React.FC<Model> = (props: Model) => {
     const classes = useStyles();
-    const {setCurrentStatus, name} = props;
+    const {setCurrentStatus, name, correctWords, setCorrectWords} = props;
     const [successModal, setSuccessModal] = useState(false);
     const onOpenSuccessModal = () => setSuccessModal(true);
     const onCloseSuccessModal = () => setSuccessModal(false);
@@ -88,7 +90,7 @@ export const GamePage: React.FC<Model> = (props: Model) => {
     const [dangerModal, setDangerModal] = useState(false);
     const onOpenDangerModal = () => setDangerModal(true);
     const onCloseDangerModal = () => setDangerModal(false);
-    const [answer, setAnswer] = useState('')
+    const [answer, setAnswer] = useState('');
 
     const [currentRound, setCurrRound] = useState(0)
 
@@ -104,6 +106,7 @@ export const GamePage: React.FC<Model> = (props: Model) => {
     const moveToNextRound = () => {
         onCloseSuccessModal();
         setAnswer('');
+        setCorrectWords(correctWords+ 1);
         if(currentRound !== roundsMap.length - 1){
             setCurrRound(currentRound + 1)
         } else {

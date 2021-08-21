@@ -52,8 +52,9 @@ const useStyles = makeStyles((theme) => ({
 export const SpellRyt = () => {
     const classes = useStyles();
 
-    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.GAME_IN_PROGRESS);
+    const [currentStatus, setCurrentStatus] = useState<GameStatus>(GameStatus.STARTED);
     const [name, setName] = useState('');
+    const [correctWords, setCorrectWords] = useState(0);
 
 
     return (
@@ -77,8 +78,8 @@ export const SpellRyt = () => {
                 : currentStatus === GameStatus.STARTED
                 ? <NamePage setCurrentStatus={setCurrentStatus} name={name} setName={setName} />
                 : currentStatus === GameStatus.GAME_IN_PROGRESS 
-                ? <GamePage setCurrentStatus={setCurrentStatus} name={name} ></GamePage>
-                : <GameOver setCurrentStatus={setCurrentStatus}/>}
+                ? <GamePage setCurrentStatus={setCurrentStatus} name={name} correctWords={correctWords} setCorrectWords={setCorrectWords}></GamePage>
+                : <GameOver setCurrentStatus={setCurrentStatus} correctWords={correctWords} setCorrectWords={setCorrectWords}/>}
             </Container>
             <Footer />
         </React.Fragment>
